@@ -1,0 +1,51 @@
+@import './vars.less';
+.set-theme-background {
+  background-color: @theme-background-color;
+  background-image: @theme-background-image ;
+  background-position: @theme-background-position ;
+  background-size: @theme-background-size;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.blurable(@parent-position, @blur, @blur-margin) {
+  position: @parent-position;
+  background-color: @blur-background-color;
+  overflow: hidden;
+  z-index: @blur-base-z-index;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(@blur);
+    .set-theme-background;
+    margin: @blur-margin;
+    z-index: @blur-z-index;
+  }
+}
+
+.column-flow(@inner-padding) {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: @inner-padding 0;
+  >* {
+    margin-bottom: @inner-padding;
+    &:last-child {
+      margin-bottom: initial;
+    }
+  }
+}
+
+.top-radius {
+  border-top-left-radius: @theme-body-radius;
+  border-top-right-radius: @theme-body-radius;
+}
+
+.bottom-radius {
+  border-bottom-left-radius: @theme-body-radius;
+  border-bottom-right-radius: @theme-body-radius;
+}

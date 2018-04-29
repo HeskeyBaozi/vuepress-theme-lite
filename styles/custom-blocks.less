@@ -1,0 +1,35 @@
+@import './vars.less';
+.custom-block {
+  .custom-block-title {
+    font-weight: 600;
+    margin-bottom: -0.4rem;
+  }
+  &.tip,
+  &.warning,
+  &.danger {
+    padding: .1rem 1.5rem;
+    border-left-width: .5rem;
+    border-left-style: solid;
+    margin: 1rem 0;
+  }
+  &.tip {
+    background-color: mix(@info-color, white, 10%);
+    border-color: @info-color;
+  }
+  &.warning {
+    background-color: mix(@warning-color, white, 10%);
+    border-color: @warning-color;
+    color: darken(@warning-color, 70%);
+    .custom-block-title {
+      color: darken(@warning-color, 20%);
+    }
+  }
+  &.danger {
+    background-color: mix(@error-color, white, 10%);
+    border-color: @error-color;
+    color: darken(@error-color, 70%);
+    .custom-block-title {
+      color: darken(@error-color, 20%);
+    }
+  }
+}
